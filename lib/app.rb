@@ -6,8 +6,13 @@ class BankAccount
     @balance = balance
   end
 
-  def deposit(amount)
-    @balance =+ amount
+  def credit(amount)
+    @balance += amount
   end
-  
+
+  def debit(amount)
+    fail "Not enough credit" if amount > @balance
+    @balance -= amount
+  end
+
 end
