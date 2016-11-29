@@ -1,7 +1,7 @@
-require 'balance'
+require 'update_balance'
 
-describe Balance do
-  subject(:balance) { described_class.new}
+describe UpdateBalance do
+  subject(:update_balance) { described_class.new}
 
   describe 'initialize' do
     it 'has a default balance of zero' do
@@ -11,17 +11,17 @@ describe Balance do
 
   describe 'credit an account' do
     it 'will have a balance plus the credit amount' do
-      balance.credit(1000)
+      update_balance.credit(1000)
         expect(subject.balance).to eq(1000)
       end
   end
 
   describe 'debit an account' do
     before do
-      balance.credit(1000)
+      update_balance.credit(1000)
     end
     it 'will have a balance minus the credit amount' do
-      balance.debit(500)
+      update_balance.debit(500)
         expect(subject.balance).to eq(500)
       end
   end

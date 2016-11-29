@@ -9,18 +9,28 @@ require 'transactions'
       end
     end
 
-    describe 'add credit' do
-      it 'will have a credit transaction and balance when credit added' do
-        transactions.add("Credit", 1000)
-        expect(subject.balance).to eq(1000)
+    context 'add credit transactions' do
+      before do
+        subject.add("Credit", 1000)
       end
 
-      describe 'add debit' do
-      end
-      it 'will have a debit transaction and reduced balance when debit added' do
-        transactions.add("Credit", 1000)
-        transactions.add("Debit", 500)
-        expect(subject.balance).to eq(500)
+      it 'adds a credit transaction to the balance' do
+      expect(subject.transactions).to include(:dr_or_cr=>"Credit", :amount=>1000, :balance=>1000)
       end
     end
+
+    context 'add debit transactions' do
+      before do
+        subject.add("Credit", 1000)
+        subject.add("Debit", 500)
+      end
+
+      it ' adds a debit transaction to the balance' do
+      expect(subject.transactions).to include(:dr_or_cr=>"Debit", :amount=>500, :balance=>500)
+      end
+    end
+
+      it 'stops going overdrawn' do
+      expect { subject.add("Debit", 500) }.to raise_error("Not enough credit")
+      end
   end

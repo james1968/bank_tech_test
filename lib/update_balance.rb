@@ -1,4 +1,4 @@
-class Balance
+class UpdateBalance
 
   attr_reader :balance
 
