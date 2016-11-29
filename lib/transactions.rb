@@ -11,7 +11,7 @@ attr_reader :transactions, :amount, :dr_or_cr, :balance
     @transaction_log = []
   end
 
-  def add(dr_or_cr, amount, balance)
+  def add(dr_or_cr, amount)
     if dr_or_cr == "Credit"
       @balance += amount
     elsif dr_or_cr == "Debit"
@@ -22,5 +22,7 @@ attr_reader :transactions, :amount, :dr_or_cr, :balance
     @transactions = {date: Time.now, dr_or_cr: dr_or_cr, amount: amount, balance: @balance}
     @transaction_log << @transactions
   end
+
+
 
 end
