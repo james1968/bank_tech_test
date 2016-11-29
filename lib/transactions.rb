@@ -5,8 +5,6 @@ attr_reader :transactions, :balance
 
   def initialize
     @update_balance = UpdateBalance.new
-    # @amount = amount
-    # @dr_or_cr = dr_or_cr
     @transactions = []
     @transaction_log = []
   end
@@ -20,7 +18,7 @@ attr_reader :transactions, :balance
       else
       fail "Please enter Debit or Credit"
     end
-    @transactions = [date, dr_or_cr, amount, @update_balance.balance]
+    @transactions = [date, dr_or_cr, (sprintf "%.2f", amount), (sprintf "%.2f", @update_balance.balance)]
     @transaction_log << @transactions
   end
 

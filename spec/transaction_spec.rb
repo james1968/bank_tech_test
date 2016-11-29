@@ -15,7 +15,7 @@ require 'transactions'
       end
 
       it 'adds a credit transaction to the balance' do
-      expect(subject.transactions).to include("Credit", 1000, 1000)
+      expect(subject.transactions).to include("Credit", (sprintf "%.2f", 1000),  (sprintf "%.2f", 1000))
       end
     end
 
@@ -26,7 +26,7 @@ require 'transactions'
       end
 
         it ' adds a debit transaction to the balance' do
-          expect(subject.transactions).to include("Debit", 500, 500)
+          expect(subject.transactions).to include("Debit", (sprintf "%.2f", 500), (sprintf "%.2f", 500))
         end
     end
 
@@ -40,7 +40,7 @@ require 'transactions'
           subject.add("Debit", 500)
         end
       it 'prints out transactions' do
-          expect(subject.print_tr(@transaction_log)).to eq [["29/11/2016", "Debit", 500, 500], ["29/11/2016", "Credit", 1000, 1000]]
+          expect(subject.print_tr(@transaction_log)).to eq [["29/11/2016", "Debit", (sprintf "%.2f", 500), (sprintf "%.2f", 500.00)], ["29/11/2016", "Credit", (sprintf "%.2f", 1000), (sprintf "%.2f", 1000.00)]]
         end
       end
 

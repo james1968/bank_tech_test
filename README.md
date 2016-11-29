@@ -28,4 +28,9 @@ Instructions
 
 4) Run rspec to see test coverage.
 
-5) Run ruby app.rb to run the application and see results for debiting and crediting money to a bank account.
+5) To test in IRB or Pry, launch Irb or Pry.  Do the following:
+    require './lib/transaction.rb.
+    transaction = Transaction.new
+    transaction.add("Credit", 1000)
+    transaction.add("Debit", 500)
+    transaction.print_tr(@transaction_log)
