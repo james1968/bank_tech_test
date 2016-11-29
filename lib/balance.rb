@@ -1,4 +1,4 @@
-class BankAccount
+class Balance
 
   attr_reader :balance
 
@@ -8,6 +8,7 @@ class BankAccount
 
   def credit(amount)
     @balance += amount
+
   end
 
   def debit(amount)
