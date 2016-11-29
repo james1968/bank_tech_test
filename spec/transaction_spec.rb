@@ -37,9 +37,10 @@ require 'transactions'
       context 'add debit transactions' do
         before do
           subject.add("Credit", 1000)
+          subject.add("Debit", 500)
         end
       it 'prints out transactions' do
-          expect(subject.print_tr(@transaction_log)).to eq [["29/11/2016", "Credit", 1000, 1000]]
+          expect(subject.print_tr(@transaction_log)).to eq [["29/11/2016", "Debit", 500, 500], ["29/11/2016", "Credit", 1000, 1000]]
         end
       end
 

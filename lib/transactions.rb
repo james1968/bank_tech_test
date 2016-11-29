@@ -26,7 +26,7 @@ attr_reader :transactions, :balance
 
   def print_tr(transaction_log)
     puts "date       || credit || debit || balance\n"
-    @transaction_log.each do |tr|
+    @transaction_log.reverse.each do |tr|
       puts tr.join(" || ")
     end
   end
